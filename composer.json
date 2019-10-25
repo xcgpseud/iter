@@ -1,0 +1,18 @@
+{
+  "name": "chris/iter",
+  "authors": [
+    {
+      "name": "Chris Evans",
+      "email": "chris@streamgo.co.uk"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^8.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Iter\\": "src/",
+      "Tests\\": "tests/"
+    }
+  }
+}
