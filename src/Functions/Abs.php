@@ -15,7 +15,7 @@ trait Abs
     {
         $arr = [];
         foreach ($this->arr as $v) {
-            $arr[] = $v < 0 ? $v - ($v * 2) : $v;
+            $arr[] = $v < 0 ? -$v : $v;
         }
         return self::with($arr);
     }
