@@ -2,7 +2,7 @@
 
 namespace Iter\Types;
 
-use Iter\Functions\{All, Any, Average, Break_, Map, Abs};
+use Iter\Functions\{All, Any, Average, Break_, Delete, Map, Abs};
 
 class Ints extends Iter
 {
@@ -11,6 +11,7 @@ class Ints extends Iter
         , Any
         , Average
         , Break_
+        , Delete
         , Map;
 
     public static function with($arr): self

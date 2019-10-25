@@ -102,6 +102,30 @@ class IntsTest extends MainTestCase
                     ],
                 ],
             ],
+            'delete' => [
+                'run' => function (array $in, array $ex, int $del) {
+                    $this->assertEquals($ex, Ints::with($in)->delete($del)->get());
+                },
+                'cases' => [
+                    [
+                        'in' => [],
+                        'ex' => [],
+                        'del' => 5,
+                    ], [
+                        'in' => [1, 2, 3],
+                        'ex' => [1, 2, 3],
+                        'del' => 5,
+                    ], [
+                        'in' => [1, 2, 3],
+                        'ex' => [1, 3],
+                        'del' => 2,
+                    ], [
+                        'in' => [1, 2, 3, 2, 1],
+                        'ex' => [1, 3, 2, 1],
+                        'del' => 2,
+                    ],
+                ],
+            ],
             'map' => [
                 'run' => function (array $in, array $ex, ?callable $fn) {
                     $this->assertEquals($ex, Ints::with($in)->map($fn)->get());
@@ -135,6 +159,8 @@ class IntsTest extends MainTestCase
     public function testAverage(): void { $this->runTestCase('average'); }
 
     public function testBreak_(): void { $this->runTestCase('break_'); }
+
+    public function testDelete(): void { $this->runTestCase('delete'); }
 
     public function testMap(): void { $this->runCases($this->getCases()['map']); }
 }
