@@ -5,4 +5,5 @@ php:
 
 script:
   - composer install
-  - phpunit ./tests
+  - composer dump-autoload
+  - ./vendor/bin/phpunit tests
