@@ -61,7 +61,7 @@ class IntsTest extends MainTestCase
                 ],
             ],
             'map' => [
-                'run' => function (array $in, array $ex, callable $fn) {
+                'run' => function (array $in, array $ex, ?callable $fn) {
                     $this->assertEquals($ex, Ints::with($in)->map($fn)->get());
                 },
                 'cases' => [

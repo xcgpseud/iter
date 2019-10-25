@@ -13,7 +13,7 @@ trait Map
 {
     /**
      * @param callable $fn
-     * @return array
+     * @return Map
      */
     public function map(?callable $fn): self
     {
