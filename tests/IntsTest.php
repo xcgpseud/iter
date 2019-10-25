@@ -145,15 +145,20 @@ class IntsTest extends MainTestCase
         ];
     }
 
-    public function testAbs(): void { $this->runCases($this->getCases()['abs']); }
+    private function runTestCase(string $type): void
+    {
+        $this->runCases($this->getCases()[$type]);
+    }
 
-    public function testAll(): void { $this->runCases($this->getCases()['all']); }
+    public function testAbs(): void { $this->runTestCase('abs'); }
 
-    public function testAny(): void { $this->runCases($this->getCases()['any']); }
+    public function testAll(): void { $this->runTestCase('all'); }
 
-    public function testAverage(): void { $this->runCases($this->getCases()['average']); }
+    public function testAny(): void { $this->runTestCase('any'); }
 
-    public function testBreak_(): void { $this->runCases($this->getCases()['break_']); }
+    public function testAverage(): void { $this->runTestCase('average'); }
+
+    public function testBreak_(): void { $this->runTestCase('break_'); }
 
     public function testMap(): void { $this->runCases($this->getCases()['map']); }
 }
