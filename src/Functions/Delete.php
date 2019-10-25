@@ -22,6 +22,6 @@ trait Delete
                 $deleted = true;
             }
         }
-        return $out;
+        return self::with($out);
     }
 }

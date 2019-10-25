@@ -160,5 +160,7 @@ class IntsTest extends MainTestCase
 
     public function testBreak_(): void { $this->runTestCase('break_'); }
 
+    public function testDelete(): void { $this->runTestCase('delete'); }
+
     public function testMap(): void { $this->runCases($this->getCases()['map']); }
 }
