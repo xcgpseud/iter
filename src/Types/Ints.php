@@ -2,13 +2,14 @@
 
 namespace Iter\Types;
 
-use Iter\Functions\{All, Any, Break_, Map, Abs};
+use Iter\Functions\{All, Any, Average, Break_, Map, Abs};
 
 class Ints extends Iter
 {
     use   Abs
         , All
         , Any
+        , Average
         , Break_
         , Map;
 

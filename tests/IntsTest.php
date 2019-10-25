@@ -60,6 +60,23 @@ class IntsTest extends MainTestCase
                     ],
                 ],
             ],
+            'average' => [
+                'run' => function (array $in, float $ex): void {
+                    $this->assertEquals($ex, Ints::with($in)->average());
+                },
+                'cases' => [
+                    [
+                        'in' => [],
+                        'ex' => 0,
+                    ], [
+                        'in' => [1, 2, 3, 4, 5],
+                        'ex' => 3,
+                    ], [
+                        'in' => [4, 5],
+                        'ex' => 4.5,
+                    ],
+                ],
+            ],
             'break_' => [
                 'run' => function (array $in, array $exBefore, array $exAfter, ?callable $fn) {
                     [$before, $after] = Ints::with($in)->break_($fn);
@@ -82,8 +99,8 @@ class IntsTest extends MainTestCase
                         'exBefore' => [1, 2],
                         'exAfter' => [3, 4, 5],
                         'fn' => function (int $v) { return $v > 2; },
-                    ]
-                ]
+                    ],
+                ],
             ],
             'map' => [
                 'run' => function (array $in, array $ex, ?callable $fn) {
@@ -109,6 +126,8 @@ class IntsTest extends MainTestCase
     public function testAll(): void { $this->runCases($this->getCases()['all']); }
 
     public function testAny(): void { $this->runCases($this->getCases()['any']); }
+
+    public function testAverage(): void { $this->runCases($this->getCases()['average']); }
 
     public function testBreak_(): void { $this->runCases($this->getCases()['break_']); }
 
