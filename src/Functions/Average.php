@@ -11,6 +11,9 @@ use Iter\Types\Iter;
  */
 trait Average
 {
+    /**
+     * @return float
+     */
     public function average(): float
     {
         if (count($this->arr) === 0) {

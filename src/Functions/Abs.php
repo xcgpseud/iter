@@ -2,6 +2,7 @@
 
 namespace Iter\Functions;
 
+use Exception;
 use Iter\Types\Iter;
 
 /**
@@ -11,12 +12,16 @@ use Iter\Types\Iter;
  */
 trait Abs
 {
-    public function abs(): self
+    /**
+     * @return Iter
+     * @throws Exception
+     */
+    public function abs(): Iter
     {
         $arr = [];
         foreach ($this->arr as $v) {
             $arr[] = $v < 0 ? -$v : $v;
         }
-        return self::with($arr);
+        return Iter::with($arr);
     }
 }

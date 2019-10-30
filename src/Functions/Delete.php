@@ -11,7 +11,7 @@ use Iter\Types\Iter;
  */
 trait Delete
 {
-    public function delete($value): self
+    public function delete($value): Iter
     {
         $out = [];
         $deleted = false;
@@ -22,6 +22,6 @@ trait Delete
                 $deleted = true;
             }
         }
-        return self::with($out);
+        return Iter::with($out);
     }
 }

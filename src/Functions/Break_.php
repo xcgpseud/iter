@@ -2,6 +2,7 @@
 
 namespace Iter\Functions;
 
+use Exception;
 use Iter\Types\Iter;
 
 /**
@@ -13,7 +14,8 @@ trait Break_
 {
     /**
      * @param callable|null $fn
-     * @return self[]
+     * @return array
+     * @throws Exception
      */
     public function break_(?callable $fn): array
     {
@@ -21,7 +23,7 @@ trait Break_
         $after = [];
 
         if (is_null($fn)) {
-            return [self::with($before), self::with($this->arr)];
+            return [Iter::with($before), Iter::with($this->arr)];
         }
 
         $passed = false;
@@ -35,6 +37,6 @@ trait Break_
             }
         }
 
-        return [self::with($before), self::with($after)];
+        return [Iter::with($before), Iter::with($after)];
     }
 }
