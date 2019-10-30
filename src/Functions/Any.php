@@ -11,6 +11,10 @@ use Iter\Types\Iter;
  */
 trait Any
 {
+    /**
+     * @param $fn
+     * @return bool
+     */
     public function any($fn): bool
     {
         if (empty($this->arr)) {

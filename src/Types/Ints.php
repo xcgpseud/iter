@@ -3,6 +3,7 @@
 namespace Iter\Types;
 
 use Iter\Functions\{All, Any, Average, Break_, Delete, Map, Abs};
+use Exception;
 
 class Ints extends Iter
 {
@@ -14,7 +15,12 @@ class Ints extends Iter
         , Delete
         , Map;
 
-    public static function with($arr): self
+    /**
+     * @param $arr
+     * @return Iter
+     * @throws Exception
+     */
+    public static function with($arr): Iter
     {
         return new self($arr);
     }

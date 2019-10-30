@@ -3,6 +3,8 @@
 namespace Iter\Types;
 
 use Iter\Functions\{All, Any, Break_, Delete, Map};
+use Exception;
+use InvalidArgumentException;
 
 class Strings extends Iter
 {
@@ -12,7 +14,12 @@ class Strings extends Iter
         , Delete
         , Map;
 
-    public static function with($arr): self
+    /**
+     * @param $arr
+     * @return Iter
+     * @throws Exception
+     */
+    public static function with($arr): Iter
     {
         return new self($arr);
     }
@@ -21,7 +28,7 @@ class Strings extends Iter
     {
         foreach ($this->arr as $v) {
             if (!is_string($v)) {
-                throw new \InvalidArgumentException("Strings value must contain only string values.");
+                throw new InvalidArgumentException("Strings value must contain only string values.");
             }
         }
     }

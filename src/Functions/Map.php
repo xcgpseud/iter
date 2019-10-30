@@ -2,6 +2,7 @@
 
 namespace Iter\Functions;
 
+use Exception;
 use Iter\Types\Iter;
 
 /**
@@ -14,16 +15,17 @@ trait Map
     /**
      * @param callable $fn
      * @return Map
+     * @throws Exception
      */
-    public function map(?callable $fn): self
+    public function map(?callable $fn): Iter
     {
         if (is_null($fn)) {
-            return self::with($this->arr);
+            return Iter::with($this->arr);
         }
         $arr = [];
         foreach ($this->arr as $v) {
             $arr[] = call_user_func($fn, $v);
         }
-        return self::with($arr);
+        return Iter::with($arr);
     }
 }
